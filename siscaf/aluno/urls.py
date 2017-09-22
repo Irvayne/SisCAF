@@ -7,7 +7,9 @@ urlpatterns = patterns('',
     #url(r'^admin/', include(admin.site.urls)),
     #url(r'^$', 'academico.views.index'),
    
-    url(r'^cadastrar_aluno$', views.cadastrar_aluno, name='cadastrar_aluno')
+    url(r'^cadastrar_aluno$', views.cadastrar_aluno, name='cadastrar_aluno'),
+    url(r'^listar_aluno$', views.listar_aluno, name='listar_aluno')
+    
      
 
 )
