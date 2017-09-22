@@ -23,4 +23,3 @@ urlpatterns = patterns('',
 #     url(r'^teste^$', views.teste , name='teste'),
      
 # ]
-
