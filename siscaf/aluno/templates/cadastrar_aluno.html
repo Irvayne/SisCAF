@@ -1,12 +1,18 @@
 {% extends "base_aluno.html" %}
 {% block body %}
 
-
+ {% if form.errors %}
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{form.non_field_errors}}
+      </div>
+ {% endif %}
   
-          <form action="/siscaf/aluno/cadastrar" method="post">
+          <form action="{% url 'cadastrar_aluno' %}" method="post">
+            {% csrf_token %}
             <div class="form-group">           
                   <label  for="inputNome">Nome Completo</label>
-                  <input name="nome" type="text" class="form-control" id="inputNome" aria-describedby="nameHelp" placeholder="Digite o nome completo">           
+                  <input name="nome" type="text" class="form-control" id="inputNome" aria-describedby="nameHelp" placeholder="Digite o nome completo">
               </div>
               
          
@@ -80,7 +86,7 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <label for="inputSenha">Password</label>
-                  <input name="senha" type="password" class="form-control" id="inputSenha" placeholder="Password">
+                  <input name="password" type="password" class="form-control" id="inputSenha" placeholder="Password">
                 </div>
                 <div class="col-md-6">
                   <label for="inputSenha1">Confirm password</label>

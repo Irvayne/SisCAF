@@ -1,0 +1,114 @@
+{% extends "base_aluno.html" %}
+{% block body %}
+
+
+          <form action="{% url 'cadastrar_aluno' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                  <label  for="inputNome">Nome Completo</label>
+                  <input value="{{aluno.nome}}" name="nome" type="text" class="form-control" id="inputNome" aria-describedby="nameHelp" placeholder="Digite o nome completo">
+              </div>
+
+
+
+        	<div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <label for="inputCPF">CPF</label>
+                  <input value="{{aluno.cpf}}" name="cpf" type="number" class="form-control" id="inputCPF" placeholder="Digite o CPF">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputRG">RG</label>
+                  <input value="{{aluno.rg}}" name="rg" type="number" class="form-control" id="inputRG" placeholder="Digite o RG">
+                </div>
+              </div>
+            </div>
+
+               <div class="form-group">
+            	<div class="form-row">
+            		<div class="col-md-6">
+						<label  for="inputSexo">Sexo</label>
+						<select id="inputSexo" name="sexo" class="form-control">
+                            {% if aluno.sexo == 'Feminino'  %}
+                                <option>Masculino</option>
+                                <option selected="selected">Feminino</option>
+                            {% else %}
+                                <option selected="selected">Masculino</option>
+                                <option >Feminino</option>
+                            {%  endif %}
+
+						</select>
+					</div>
+
+             		<div class="col-md-6">
+
+            			<label  for="inputCurso">Curso</label>
+        				<select id="inputCurso" name="curso" class="form-control">
+                            {% if aluno.curso == 'Técnico em Mecânica'  %}
+                                <option selected="selected">Técnico em Mecânica</option>
+                                <option>Técnico em Eletrotécnica</option>
+                            {% else %}
+                                <option >Técnico em Mecânica</option>
+                                <option selected="selected">Técnico em Eletrotécnica</option>
+
+                            {% endif %}
+
+						</select>
+					</div>
+
+
+              </div>
+			</div>
+
+
+
+            <div class="form-group">
+              <label for="inputEndereco">Endereço</label>
+              <input value="{{aluno.endereco}}" name="endereco" type="text" class="form-control" id="inputEndereco"  placeholder="Digite o Endereço">
+            </div>
+
+           <div class="form-group">
+              <label for="inputEmail">Email </label>
+              <input value="{{aluno.email}}" name="email" type="text" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o email">
+            </div>
+
+            <div class="form-group">
+	            <div class="form-row">
+	           		 <div class="col-md-6">
+
+			              <label for="inputCelular">Celular</label>
+			              <input value="{{aluno.celular}}" name="celular" type="text" class="form-control" id="inputCelular"  placeholder="Digite o numero do celular">
+		           </div>
+		           <div class="col-md-6">
+
+			              <label for="inputTelefoneFixo">Telefone Fixo</label>
+			              <input value="{{aluno.telefoneFixo}}" name="telefoneFixo" type="text" class="form-control" id="inputTelefoneFixo"  placeholder="Digite o numero do telefone fixo">
+		           </div>
+	            </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <label for="inputSenha">Password</label>
+                  <input name="password" type="password" class="form-control" id="inputSenha" placeholder="Password">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputSenha1">Confirm password</label>
+                  <input type="password" class="form-control" id="inputSenha1" placeholder="Confirmar password">
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit" >Cadastrar</button>
+
+          </form>
+
+
+
+
+
+
+
+
+{% endblock %}
