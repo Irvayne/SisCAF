@@ -2,14 +2,11 @@
 {% block body %}
 <div class="card mb-3">
 	<div class="card-header">
-		<i class="fa fa-table"></i> Alunos Cadastrados
+		<i class="fa fa-table"></i> Turmas Cadastrados
 		<div></div>
-		<a href="{% url 'cadastrar_aluno' %}" style="float: right;"
+		<a href="{% url 'cadastrar_turma' %}" style="float: right;"
 			class="btn btn-primary"> <i class="fa fa-fw fa-plus"> </i>
-
 			Cadastro
-
-
 		</a>
 
 
@@ -21,43 +18,16 @@
 				<thead>
 					<tr>
 						<th>Nome</th>
-						<th>CPF</th>
-						<th>RG</th>
-						<th>Endereco</th>
-						<th>Email</th>
-						<th>Sexo</th>
-						<th>Curso</th>
-						<th>Opções</th>
 					</tr>
 				</thead>
-				<tfoot>
-					<tr>
-						<th>Nome</th>
-						<th>CPF</th>
-						<th>RG</th>
-						<th>Endereco</th>
-						<th>Email</th>
-						<th>Sexo</th>
-						<th>Curso</th>
-						<th>Opções</th>
-					</tr>
-				</tfoot>
 				<tbody>
-					{% for aluno in alunos %}
+					{% for turma in turmas %}
 						<tr>
-							<td >{{aluno.nome}}</td>
-							<td>{{aluno.cpf}}</td>
-							<td>{{aluno.rg}}</td>
-							<td>{{aluno.endereco}}</td>
-							<td>{{aluno.email}}</td>
-							<td>{{aluno.sexo}}</td>
-							<td>{{aluno.curso}}</td>
+							<td >{{turma.nome}}</td>
 							<td ><a id="deletar" class="btn btn-danger" href="" data-toggle="modal" data-target="#exampleModal" 
 								> <i class="fa fa-fw fa-remove">
 								</i> 
-							</a> <a id="editar"  href="{% url 'editar_aluno' aluno.id %}"  class="btn btn-primary">
-									<i class="fa fa-fw fa-edit"> </i> 
-							</a> </td>
+							</a>  </td>
 
 							
 							<!-- Logout Modal -->
@@ -76,7 +46,7 @@
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary"
 													data-dismiss="modal">Cancel</button>
-												<a class="btn btn-primary" href="{% url 'deletar_aluno' aluno.id %}">continuar</a>
+												<a class="btn btn-primary" href="#">continuar</a>
 											</div>
 										</div>
 									</div>
@@ -95,4 +65,3 @@
 
 
 {% endblock %}
-

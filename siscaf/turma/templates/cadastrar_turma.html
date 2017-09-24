@@ -1,0 +1,28 @@
+{% extends "../../academico/templates/template.html" %}
+{% block body %}
+
+ {% if form.errors %}
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{form.non_field_errors}}
+      </div>
+ {% endif %}
+  
+          <form action="{% url 'cadastrar_turma' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">           
+                  <label  for="inputNome">Nome da Turma</label>
+                  <input name="nome" type="text" class="form-control" id="inputNome" aria-describedby="nameHelp" placeholder="Digite o nome da turma">
+              </div>
+            <button class="btn btn-primary btn-block" type="submit" >Cadastrar</button>
+          
+          </form>
+
+
+   
+
+   
+
+
+
+{% endblock %}

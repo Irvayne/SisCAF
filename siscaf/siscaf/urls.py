@@ -5,27 +5,12 @@ from academico import views
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^professor/', include('Professor.urls')),
+    url(r'^professor/', include('professor.urls')),
     url(r'^academico/', include('academico.urls')),
     url(r'^aluno/', include('aluno.urls')),
+    url(r'^turma/', include('turma.urls')),
     url(r'^$', 'academico.views.index'),
     
     
 
 )
-
-# urlpatterns = [
-#     url(r'^admin/', include(admin.site.urls)),
-#     url(r'^$', include('Professor.urls')),
-#     url(r'^$', 'academico.views.index'),
-    
-
-# ]from django.conf.urls import patterns, include, url
-
-# urlpatterns = [
-#     url(r'^admin/', include(admin.site.urls)),
-#     url(r'^$', include('Professor.urls')),
-#     url(r'^$', 'academico.views.index'),
-    
-
-# ]

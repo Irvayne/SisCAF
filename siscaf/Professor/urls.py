@@ -1,11 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from Professor import views
+from professor import views
+from professor.views import RegistrarProfessorView
 
 
 urlpatterns = patterns('',
-    #url(r'^admin/', include(admin.site.urls)),
-    #url(r'^$', 'academico.views.index'),
-    url(r'^$', views.index , name='index'),    
-
+  
+  	url(r'^listar$', views.listar, name='listar_professores'),
+   	url(r'^cadastrar$', RegistrarProfessorView.as_view(), name="cadastrar_professor"),
 )
