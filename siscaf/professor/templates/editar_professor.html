@@ -1,10 +1,10 @@
 {% extends "../../siscaf/templates/home.html" %}
 {% block body %}
-          <form action="{% url 'cadastrar_aluno' %}" method="post">
+          <form action="{% url 'cadastrar_professor' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                   <label  for="inputNome">Nome Completo</label>
-                  <input value="{{aluno.nome}}" name="nome" type="text" class="form-control" id="inputNome" aria-describedby="nameHelp" placeholder="Digite o nome completo">
+                  <input value="{{professor.nome}}" name="nome" type="text" class="form-control" id="inputNome" aria-describedby="nameHelp" placeholder="Digite o nome completo">
               </div>
 
 
@@ -13,11 +13,11 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <label for="inputCPF">CPF</label>
-                  <input value="{{aluno.cpf}}" name="cpf" type="number" class="form-control" id="inputCPF" placeholder="Digite o CPF">
+                  <input value="{{professor.cpf}}" name="cpf" type="number" class="form-control" id="inputCPF" placeholder="Digite o CPF">
                 </div>
                 <div class="col-md-6">
                   <label for="inputRG">RG</label>
-                  <input value="{{aluno.rg}}" name="rg" type="number" class="form-control" id="inputRG" placeholder="Digite o RG">
+                  <input value="{{professor.rg}}" name="rg" type="number" class="form-control" id="inputRG" placeholder="Digite o RG">
                 </div>
               </div>
             </div>
@@ -27,7 +27,7 @@
             		<div class="col-md-6">
 						<label  for="inputSexo">Sexo</label>
 						<select id="inputSexo" name="sexo" class="form-control">
-                            {% if aluno.sexo == 'Feminino'  %}
+                            {% if professor.sexo == 'Feminino'  %}
                                 <option>Masculino</option>
                                 <option selected="selected">Feminino</option>
                             {% else %}
@@ -42,7 +42,7 @@
 
             			<label  for="inputCurso">Curso</label>
         				<select id="inputCurso" name="curso" class="form-control">
-                            {% if aluno.curso == 'Técnico em Mecânica'  %}
+                            {% if professor.curso == 'Técnico em Mecânica'  %}
                                 <option selected="selected">Técnico em Mecânica</option>
                                 <option>Técnico em Eletrotécnica</option>
                             {% else %}
@@ -62,12 +62,12 @@
 
             <div class="form-group">
               <label for="inputEndereco">Endereço</label>
-              <input value="{{aluno.endereco}}" name="endereco" type="text" class="form-control" id="inputEndereco"  placeholder="Digite o Endereço">
+              <input value="{{professor.endereco}}" name="endereco" type="text" class="form-control" id="inputEndereco"  placeholder="Digite o Endereço">
             </div>
 
            <div class="form-group">
               <label for="inputEmail">Email </label>
-              <input value="{{aluno.email}}" name="email" type="text" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o email">
+              <input value="{{professor.email}}" name="email" type="text" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o email">
             </div>
 
             <div class="form-group">
@@ -75,12 +75,12 @@
 	           		 <div class="col-md-6">
 
 			              <label for="inputCelular">Celular</label>
-			              <input value="{{aluno.celular}}" name="celular" type="text" class="form-control" id="inputCelular"  placeholder="Digite o numero do celular">
+			              <input value="{{professor.celular}}" name="celular" type="text" class="form-control" id="inputCelular"  placeholder="Digite o numero do celular">
 		           </div>
 		           <div class="col-md-6">
 
 			              <label for="inputTelefoneFixo">Telefone Fixo</label>
-			              <input value="{{aluno.telefoneFixo}}" name="telefoneFixo" type="text" class="form-control" id="inputTelefoneFixo"  placeholder="Digite o numero do telefone fixo">
+			              <input value="{{professor.telefoneFixo}}" name="telefoneFixo" type="text" class="form-control" id="inputTelefoneFixo"  placeholder="Digite o numero do telefone fixo">
 		           </div>
 	            </div>
             </div>

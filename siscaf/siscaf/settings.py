@@ -36,10 +36,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'academico',
     'professor',
     'aluno',
-    'turma'
+    'turma',
+    'siscaf',
 )
 
 MIDDLEWARE_CLASSES = (

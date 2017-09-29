@@ -2,11 +2,14 @@
 {% block body %}
 <div class="card mb-3">
 	<div class="card-header">
-		<i class="fa fa-table"></i> Turmas Cadastrados
+		<i class="fa fa-table"></i> Professores Cadastrados
 		<div></div>
-		<a href="{% url 'cadastrar_turma' %}" style="float: right;"
+		<a href="{% url 'cadastrar_professor' %}" style="float: right;"
 			class="btn btn-primary"> <i class="fa fa-fw fa-plus"> </i>
+
 			Cadastro
+
+
 		</a>
 
 
@@ -18,16 +21,43 @@
 				<thead>
 					<tr>
 						<th>Nome</th>
+						<th>CPF</th>
+						<th>RG</th>
+						<th>Endereco</th>
+						<th>Email</th>
+						<th>Sexo</th>
+						<th>Curso</th>
+						<th>Opções</th>
 					</tr>
 				</thead>
+				<tfoot>
+					<tr>
+						<th>Nome</th>
+						<th>CPF</th>
+						<th>RG</th>
+						<th>Endereco</th>
+						<th>Email</th>
+						<th>Sexo</th>
+						<th>Curso</th>
+						<th>Opções</th>
+					</tr>
+				</tfoot>
 				<tbody>
-					{% for turma in turmas %}
+					{% for prof in professor %}
 						<tr>
-							<td >{{turma.nome}}</td>
+							<td >{{prof.nome}}</td>
+							<td>{{prof.cpf}}</td>
+							<td>{{prof.rg}}</td>
+							<td>{{prof.endereco}}</td>
+							<td>{{prof.email}}</td>
+							<td>{{prof.sexo}}</td>
+							<td>{{prof.curso}}</td>
 							<td ><a id="deletar" class="btn btn-danger" href="" data-toggle="modal" data-target="#exampleModal" 
 								> <i class="fa fa-fw fa-remove">
 								</i> 
-							</a>  </td>
+							</a> <a id="editar"  href="{% url 'editar_professor' prof.id %}"  class="btn btn-primary">
+									<i class="fa fa-fw fa-edit"> </i> 
+							</a> </td>
 
 							
 							<!-- Logout Modal -->
@@ -46,7 +76,7 @@
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary"
 													data-dismiss="modal">Cancel</button>
-												<a class="btn btn-primary" href="#">continuar</a>
+												<a class="btn btn-primary" href="{% url 'deletar_professor' prof.id %}">continuar</a>
 											</div>
 										</div>
 									</div>
@@ -65,3 +95,4 @@
 
 
 {% endblock %}
+
