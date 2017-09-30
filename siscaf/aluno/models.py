@@ -13,3 +13,4 @@ class Aluno(models.Model):
 	celular = models.CharField(max_length=15,null=False)
 	telefoneFixo = models.CharField(max_length=15,null=False)
 	password = models.CharField(max_length=255,null=False)
+	turma = models.CharField(max_length=255)

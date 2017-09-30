@@ -14,17 +14,27 @@ def deletar_turma(request, turma_id):
     turma.delete()
     return redirect('listar_turmas')
 
+# def salvar_aluno(request):
+#     p = request.GET.getlist('checkalunos')
+#     print(p)
+#     return redirect('listar_turmas')
+
+
 class RegistrarTurmaView(View):
     template_name = 'cadastrar_turma.html'
+    check = [] 
 
     def get(self, request):
+        global check
         alunos = Aluno.objects.all()
+        check = request.GET.getlist('checkalunos')
         return render(request, self.template_name, {'alunos':alunos})
+        
 
     def post(self, request):
         # preenche o from
+        global check
         form = RegistrarTurmaForm(request.POST)
-
         # verifica se eh valido
         if form.is_valid():
             dados_form = form.data
@@ -32,7 +42,11 @@ class RegistrarTurmaView(View):
 
             # cria o perfil
             turma = Turma(nome=dados_form['nome'],curso=dados_form['curso'])
-
+            for ch in check:
+                aluno = Aluno.objects.get(id=int(ch))
+                aluno.turma = dados_form['nome']
+                #print(aluno.nome,aluno.turma) #verifica visual se o nome da turma esta sendo associado
+                aluno.save()
             # grava no banco
             turma.save()
 
